@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h2>Mesas de Billar</h2>
+    
+    <table style="width:100%">
+        <tr>
+            <th>Mesa 1</th>
+            <th>Mesa 2</th>
+            <th>Mesa 3</th>
+        </tr>
+        <tr>
+            <th><img src="mesaOff.jpeg" id = "mesa1" onclick="mesas(1);"></th>
+            <th><img src="mesaOff.jpeg" id = "mesa2" onclick="mesas(2);"></th>
+            <th><img src="mesaOff.jpeg" id = "mesa3" onclick="mesas(3);"></th>
+        </tr>
+        <tr>
+            <td>Hora de inicio:<form name="mesa10">
+                <input type="text" name="reloj10" size="10">
+            </form> <br> Hora de Final:<form name="mesa11">
+                <input type="text" name="reloj11" size="10">
+            </form> <br> Total:<form name="total10">
+                <input type="text" name="total11" size="10">
+            </form></td>
+
+            <td>Hora de inicio:<form name="mesa20">
+                <input type="text" name="reloj20" size="10">
+            </form> <br> Hora de Final:<form name="mesa21">
+                <input type="text" name="reloj21" size="10">
+            </form> <br> Total:<form name="total20">
+                <input type="text" name="total21" size="10">
+            </form></td>
+
+            <td>Hora de inicio:<form name="mesa30">
+                <input type="text" name="reloj30" size="10">
+            </form> <br> Hora de Final:<form name="mesa31">
+                <input type="text" name="reloj31" size="10">
+            </form> <br> Total:<form name="total30">
+                <input type="text" name="total31" size="10">
+            </form></td>
+        </tr>
+        <tr>
+            <th>Mesa 4</th>
+            <th>Mesa 5</th>
+            <th>Mesa 6</th>
+        </tr>
+        <tr>
+            <th><img src="mesaOff.jpeg" id = "mesa4" onclick="mesas(4);"></th>
+            <th><img src="mesaOff.jpeg" id = "mesa5" onclick="mesas(5);"></th>
+            <th><img src="mesaOff.jpeg" id = "mesa6" onclick="mesas(6);"></th>
+        </tr>
+        <tr>
+            <td>Hora de inicio:<form name="mesa40">
+                <input type="text" name="reloj40" size="10">
+            </form> <br> Hora de Final:<form name="mesa41">
+                <input type="text" name="reloj41" size="10">
+            </form> <br> Total:<form name="total40">
+                <input type="text" name="total41" size="10">
+            </form></td>
+
+            <td>Hora de inicio:<form name="mesa50">
+                <input type="text" name="reloj50" size="10">
+            </form> <br> Hora de Final:<form name="mesa51">
+                <input type="text" name="reloj51" size="10">
+            </form> <br> Total:<form name="total50">
+                <input type="text" name="total51" size="10">
+            </form></td>
+
+            <td>Hora de inicio:<form name="mesa60">
+                <input type="text" name="reloj60" size="10">
+            </form> <br> Hora de Final:<form name="mesa61">
+                <input type="text" name="reloj61" size="10">
+            </form> <br> Total:<form name="total60">
+                <input type="text" name="total61" size="10">
+            </form></td>
+        </tr>
+    </table>
+    <script>
+        const mesas = (noMesa) => {
+            if(noMesa == 1){
+                let mesa = document.getElementById("mesa1");
+                if(mesa.src.match('mesaOff')){
+                    mesa.src = "mesaOn.jpeg"
+                    relojMesas(1);
+                } else{
+                    mesa.src = "mesaOff.jpeg"
+                    relojMesas(2);
+                }
+            }
+            else if(noMesa == 2){
+                let mesa = document.getElementById("mesa2");
+                if(mesa.src.match('mesaOff')){
+                    mesa.src = "mesaOn.jpeg"
+                    relojMesas(3);
+                } else{
+                    mesa.src = "mesaOff.jpeg"
+                    relojMesas(4);
+                }
+            }
+            else if(noMesa == 3){
+                let mesa = document.getElementById("mesa3");
+                if(mesa.src.match('mesaOff')){
+                    mesa.src = "mesaOn.jpeg"
+                    relojMesas(5);
+                } else{
+                    mesa.src = "mesaOff.jpeg"
+                    relojMesas(6);
+                }
+            }
+            if(noMesa == 4){
+                let mesa = document.getElementById("mesa4");
+                if(mesa.src.match('mesaOff')){
+                    mesa.src = "mesaOn.jpeg"
+                    relojMesas(7);
+                } else{
+                    mesa.src = "mesaOff.jpeg"
+                    relojMesas(8);
+                }
+            }
+            else if(noMesa == 5){
+                let mesa = document.getElementById("mesa5");
+                if(mesa.src.match('mesaOff')){
+                    mesa.src = "mesaOn.jpeg"
+                    relojMesas(9);
+                } else{
+                    mesa.src = "mesaOff.jpeg"
+                    relojMesas(10);
+                }
+            }
+            else if(noMesa == 6){
+                let mesa = document.getElementById("mesa6");
+                if(mesa.src.match('mesaOff')){
+                    mesa.src = "mesaOn.jpeg"
+                    relojMesas(11);
+                } else{
+                    mesa.src = "mesaOff.jpeg"
+                    relojMesas(12);
+                }
+            }           
+        }
+
+        var hora1, hora2, hora3, hora4, hora5, hora6; 
+        var minuto1, minuto2, minuto3, minuto4, minuto5, minuto6; 
+        var segundo1, segundo2, segundo3, segundo4, segundo5, segundo6; 
+        var total1, total2, total3, total4, total5, total6;
+
+        function relojMesas(mesa){
+            momentoActual = new Date()
+            hora = momentoActual.getHours()
+            minuto = momentoActual.getMinutes()
+            segundo = momentoActual.getSeconds()
+
+            horaImprimible = hora + " : " + minuto + " : " + segundo
+
+            setTimeout("relojMesas()",1000)
+
+            if(mesa == 1){
+                hora1 = hora
+                minuto1 = minuto
+                segundo1 = segundo
+                document.mesa10.reloj10.value = horaImprimible
+                document.mesa11.reloj11.value = "En uso"
+                document.total10.total11.value = ""
+            } else if(mesa == 2) {
+                document.mesa11.reloj11.value = horaImprimible
+                total1 = ((segundo-segundo1)/3600) + ((minuto-minuto1)/60) + (hora-hora1)
+                document.total10.total11.value = total1 * 50
+            } 
+            
+            if(mesa == 3){
+                hora2 = hora
+                minuto2 = minuto
+                segundo2 = segundo
+                document.mesa20.reloj20.value = horaImprimible
+                document.mesa21.reloj21.value = "En uso"
+                document.total20.total21.value = ""
+            } else if(mesa == 4) {
+                document.mesa21.reloj21.value = horaImprimible
+                total2 = ((segundo-segundo2)/3600) + ((minuto-minuto2)/60) + (hora-hora2)
+                document.total20.total21.value = total2 * 50
+            } 
+
+            if(mesa == 5){
+                hora3 = hora
+                minuto3 = minuto
+                segundo3 = segundo
+                document.mesa30.reloj30.value = horaImprimible
+                document.mesa31.reloj31.value = "En uso"
+                document.total30.total31.value = ""
+            } else if(mesa == 6) {
+                document.mesa31.reloj31.value = horaImprimible
+                total3 = ((segundo-segundo3)/3600) + ((minuto-minuto3)/60) + (hora-hora3)
+                document.total30.total31.value = total3 * 50
+            } 
+
+            if(mesa == 7){
+                hora4 = hora
+                minuto4 = minuto
+                segundo4 = segundo
+                document.mesa40.reloj40.value = horaImprimible
+                document.mesa41.reloj41.value = "En uso"
+                document.total40.total41.value = ""
+            } else if(mesa == 8) {
+                document.mesa41.reloj41.value = horaImprimible
+                total4 = ((segundo-segundo4)/3600) + ((minuto-minuto4)/60) + (hora-hora4)
+                document.total40.total41.value = total4 * 50
+            } 
+            
+            if(mesa == 9){
+                hora5 = hora
+                minuto5 = minuto
+                segundo5 = segundo
+                document.mesa50.reloj50.value = horaImprimible
+                document.mesa51.reloj51.value = "En uso"
+                document.total50.total51.value = ""
+            } else if(mesa == 10) {
+                document.mesa51.reloj51.value = horaImprimible
+                total5 = ((segundo-segundo5)/3600) + ((minuto-minuto5)/60) + (hora-hora5)
+                document.total50.total51.value = total5 * 50
+            } 
+
+            if(mesa == 11){
+                hora6 = hora
+                minuto6 = minuto
+                segundo6 = segundo
+                document.mesa60.reloj60.value = horaImprimible
+                document.mesa61.reloj61.value = "En uso"
+                document.total60.total61.value = ""
+            } else if(mesa == 12) {
+                document.mesa61.reloj61.value = horaImprimible
+                total6 = ((segundo-segundo6)/3600) + ((minuto-minuto6)/60) + (hora-hora6)
+                document.total60.total61.value = total6 * 50
+            } 
+        }
+    </script>
+</body>
+</html>
